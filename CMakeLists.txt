@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8.7 FATAL_ERROR)
+project(Space_Invaders CXX)
+aux_source_directory(. SRC_LIST)
+add_executable(${PROJECT_NAME} ${SRC_LIST})
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -g -ftest-coverage -fprofile-arcs")
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+target_link_libraries(Space_Invaders ${CURSES_LIBRARIES})
